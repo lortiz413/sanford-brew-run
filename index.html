@@ -151,11 +151,11 @@ footer{color:var(--muted);font-size:13px}
 
 <header class="board">
   <div class="wrap">
-    <div class="eyebrow">Wednesday, Oct 28, 2026 ¬∑ SunRail day trip</div>
+    <div class="eyebrow">Wednesday, Oct 28, 2026 &#xb7; SunRail day trip</div>
     <h1>Poinciana <span>to</span><br>Sanford</h1>
     <div class="route" aria-label="Route summary">
       <span class="dot"></span><span>10:45 AM</span><span class="bar"></span><span>12:10 PM</span><span class="dot"></span>
-      <span style="color:#8FB0B4">back 5:58 PM ¬∑ sunset 6:44 PM</span>
+      <span style="color:#8FB0B4">back 5:58 PM &#xb7; sunset 6:44 PM</span>
     </div>
     <div class="next" id="nextBox" aria-live="polite">
       <div class="lbl" id="nextLbl">Next up</div>
@@ -268,7 +268,7 @@ footer{color:var(--muted);font-size:13px}
   <p class="lede">Your two main stops face each other on Sanford Avenue, right by the trolley stop. Tap lists rotate, so ask what is fresh and order a flight.</p>
 
   <div class="card">
-    <div class="row"><span class="pill ale">Stop 1 ¬∑ 12:40 PM</span><span class="pill">Wednesday 11:30 AM to 10 PM</span></div>
+    <div class="row"><span class="pill ale">Stop 1 &#xb7; 12:40 PM</span><span class="pill">Wednesday 11:30 AM to 10 PM</span></div>
     <h3>Wop's Hops Brewing Company</h3>
     <div class="addr">419 S Sanford Ave, Sanford, FL 32771</div>
     <p>Sanford's first microbrewery, open since 2014, with Italian pub food. The building was once a brothel and locals say a young boy haunts it, a good story for Halloween week. There is a giant dinosaur on the patio.</p>
@@ -288,7 +288,7 @@ footer{color:var(--muted);font-size:13px}
   </div>
 
   <div class="card">
-    <div class="row"><span class="pill ale">Stop 2 ¬∑ 1:50 PM</span><span class="pill">Wednesday 11 AM to 10 PM</span></div>
+    <div class="row"><span class="pill ale">Stop 2 &#xb7; 1:50 PM</span><span class="pill">Wednesday 11 AM to 10 PM</span></div>
     <h3>Brewlando Sanford</h3>
     <div class="addr">400 S Sanford Ave, Sanford, FL 32771</div>
     <p>The former Sanford Brewing Company, reopened by Brewlando in March 2025. Full restaurant, patio, and more than 20 beers brewed in house, plus small batch brews made on site.</p>
@@ -308,7 +308,7 @@ footer{color:var(--muted);font-size:13px}
   </div>
 
   <div class="card">
-    <div class="row"><span class="pill ale">Stop 3 ¬∑ 3:15 PM, optional</span><span class="pill warn">Hours not confirmed</span></div>
+    <div class="row"><span class="pill ale">Stop 3 &#xb7; 3:15 PM, optional</span><span class="pill warn">Hours not confirmed</span></div>
     <h3>Dees Brothers Brewery</h3>
     <div class="addr">210 Magnolia Ave, Sanford, FL 32771</div>
     <p>Two brothers who went from garage homebrew to a brewery in a 100 year old building. Core beers: <b>Cotswolds Ale</b> (English amber), <b>Dees Bier</b> (hefeweizen), <b>Thunder &amp; Lightning</b> (American IPA) and <b>Lakeside Pilsner</b>. Go only if it is dry and the brewery confirms it is open (check Google Maps or call). From here, catch the trolley at Magnolia Square at 3:55 PM and stay on board to the station.</p>
@@ -328,11 +328,11 @@ footer{color:var(--muted);font-size:13px}
   <div class="note"><b>Showers likely, possible thunderstorms.</b> Showers before 2 PM, a chance of showers and thunderstorms from 2 to 3 PM, then showers likely and possibly a thunderstorm after 3 PM. Wind from the north northeast at 15 to 20 mph, gusting to 35 mph.</div>
   <div class="wx">
     <div class="card"><span class="lbl">Sky</span><span class="big">Showers</span></div>
-    <div class="card"><span class="lbl">High</span><span class="big">81¬∞F</span></div>
+    <div class="card"><span class="lbl">High</span><span class="big">81&#xb0;F</span></div>
     <div class="card"><span class="lbl">Rain chance</span><span class="big">60%</span></div>
     <div class="card"><span class="lbl">Rainfall</span><span class="big">0.1 to 0.25 in</span></div>
     <div class="card"><span class="lbl">Gusts</span><span class="big">35 mph</span></div>
-    <div class="card"><span class="lbl">Evening low</span><span class="big">72¬∞F</span></div>
+    <div class="card"><span class="lbl">Evening low</span><span class="big">72&#xb0;F</span></div>
   </div>
   <p style="font-size:13px;color:var(--muted)">National Weather Service forecast for Sanford, updated 8:55 AM Tuesday, Oct 27. Check it again tomorrow morning before you leave; forecasts a day out can shift.</p>
   <div class="grid2">
@@ -492,7 +492,7 @@ footer{color:var(--muted);font-size:13px}
     var diff=mins(steps[nextIdx].t)-n.min, h=Math.floor(diff/60), m=diff%60;
     lbl.textContent="Next up";
     what.textContent=steps[nextIdx].w;
-    when.textContent=fmt(steps[nextIdx].t)+" ¬∑ in "+(h?h+" h ":"")+m+" min";
+    when.textContent=fmt(steps[nextIdx].t)+" \u00b7 in "+(h?h+" h ":"")+m+" min";
   }
   updateNow(); setInterval(updateNow,30000);
 
@@ -512,10 +512,10 @@ footer{color:var(--muted);font-size:13px}
       var t=document.createElementNS(NS,"text");t.setAttribute("x",x);t.setAttribute("y",28);t.setAttribute("text-anchor",i===0?"start":"end");
       t.setAttribute("font-weight","700");t.textContent=r[0];g.appendChild(t);
       var t2=document.createElementNS(NS,"text");t2.setAttribute("x",x);t2.setAttribute("y",80);t2.setAttribute("text-anchor",i===0?"start":"end");
-      t2.setAttribute("class","muted");t2.textContent=i===0?"10:45 AM out ¬∑ 5:58 PM back":"12:10 PM in ¬∑ 4:36 PM out";g.appendChild(t2);
+      t2.setAttribute("class","muted");t2.textContent=i===0?"10:45 AM out \u00b7 5:58 PM back":"12:10 PM in \u00b7 4:36 PM out";g.appendChild(t2);
     }
   });
-  var mid=document.createElementNS(NS,"text");mid.setAttribute("x",350);mid.setAttribute("y",108);mid.setAttribute("text-anchor","middle");mid.setAttribute("class","muted");mid.textContent="13 stops in between ¬∑ Orlando and Winter Park on the way";g.appendChild(mid);
+  var mid=document.createElementNS(NS,"text");mid.setAttribute("x",350);mid.setAttribute("y",108);mid.setAttribute("text-anchor","middle");mid.setAttribute("class","muted");mid.textContent="13 stops in between \u00b7 Orlando and Winter Park on the way";g.appendChild(mid);
 
   // ---------- Places ----------
   var pl=document.getElementById("places");
