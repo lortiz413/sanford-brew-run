@@ -168,6 +168,7 @@ footer{color:var(--muted);font-size:13px}
 <nav class="tabs" aria-label="Sections">
   <div class="wrap" role="tablist">
     <a class="tab" href="#plan" data-tab="plan">Plan</a>
+    <a class="tab" href="#station" data-tab="station">At the Station</a>
     <a class="tab" href="#trains" data-tab="trains">Trains &amp; Trolley</a>
     <a class="tab" href="#beer" data-tab="beer">Beer &amp; Bites</a>
     <a class="tab" href="#weather" data-tab="weather">Weather &amp; Wear</a>
@@ -191,6 +192,54 @@ footer{color:var(--muted);font-size:13px}
   <div class="card">
     <h3>Before you leave Solivita</h3>
     <div id="checklist"></div>
+  </div>
+</section>
+
+<!-- STATION -->
+<section data-view="station" hidden>
+  <h2>At the station, step by step</h2>
+  <p class="lede">Follow these in order from the moment you park. Tick them off as you go.</p>
+  <div class="note ok"><b>Ticket tip:</b> buy a <b>round trip</b> at the machine in Poinciana (should show <b>$8</b>, 3 zones each way). One ticket covers the ride home, so you skip the machine in Sanford. Keep it safe; tickets are good only today.</div>
+
+  <div class="card">
+    <div class="row"><span class="pill">Part 1</span><span class="pill ale">Poinciana Station &#xb7; arrive by 10:20 AM</span></div>
+    <h3>Park and board</h3>
+    <div id="stepsA"></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="pill">Part 2</span><span class="pill ale">On board &#xb7; 10:45 AM to 12:10 PM</span></div>
+    <h3>The ride north</h3>
+    <div id="stepsB"></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="pill">Part 3</span><span class="pill ale">Sanford Station &#xb7; 12:10 PM</span></div>
+    <h3>Train to trolley</h3>
+    <div id="stepsC"></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="pill">Part 4</span><span class="pill ale">Heading home &#xb7; 3:55 to 4:36 PM</span></div>
+    <h3>Trolley back and train south</h3>
+    <div id="stepsD"></div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="pill">Part 5</span><span class="pill ale">Poinciana &#xb7; 5:58 PM</span></div>
+    <h3>Back to your car</h3>
+    <div id="stepsE"></div>
+  </div>
+
+  <div class="card">
+    <h3>If something goes wrong</h3>
+    <ul class="clean">
+      <li><b>Machine will not take your card:</b> try Apple Pay or another card. Machines take cash too.</li>
+      <li><b>Not sure which platform:</b> find a SunRail ambassador or ask the conductor. Every train at Poinciana goes north, so any train there is going your way.</li>
+      <li><b>Missed the train:</b> next northbound leaves Poinciana at 12:15 PM. See the If Plans Change tab.</li>
+      <li><b>Problem on board:</b> tell the conductor. Never pull the emergency lever.</li>
+      <li><b>SunRail customer service:</b> <span class="mono" style="user-select:all">1 855 724 5411</span></li>
+    </ul>
   </div>
 </section>
 
@@ -428,7 +477,7 @@ footer{color:var(--muted);font-size:13px}
   // ---------- Data ----------
   var steps = [
     {t:"09:45",k:"go",w:"Leave Solivita",d:"Drive to Poinciana Station, 5025 S Rail Ave. Check live traffic in Maps. Rain jacket on."},
-    {t:"10:20",k:"go",w:"Park free, buy tickets",d:"Ticket machine on the platform. $4 each way. Tap On before boarding. Be on the platform by 10:25."},
+    {t:"10:20",k:"go",w:"Park free, buy tickets",d:"Buy a $8 round trip at the platform machine, Tap On, be on the platform by 10:25. Full steps in the At the Station tab."},
     {t:"10:45",k:"train",w:"Train P316 leaves Poinciana",d:"Northbound toward DeLand. Sit back for about 85 minutes."},
     {t:"12:10",k:"train",w:"Arrive Sanford Station",d:"Tap Off. The free trolley waits outside."},
     {t:"12:15",k:"go",w:"Trolley leaves the station",d:"Ride past Magnolia Square and the Information Center."},
@@ -498,6 +547,50 @@ footer{color:var(--muted);font-size:13px}
   }
   updateNow(); setInterval(updateNow,30000);
 
+  // ---------- Station steps ----------
+  var stationSteps={
+    stepsA:[
+      "Park in the free lot at 5025 S Rail Ave. Snap a photo of your parking spot.",
+      "Bathroom check: the station has no restrooms. The train does.",
+      "Walk to the platform and follow the signs for trains to Orlando and DeLand (northbound).",
+      "At the ticket machine on the platform: choose Round Trip, Adult, destination Sanford. Confirm it shows $8 before paying.",
+      "Tap On: hold your ticket against the validator on the platform until the screen accepts it. Do this before boarding.",
+      "Wait behind the yellow line. Confirm the train sign says DeLand. Board at 10:45 AM; it leaves on time."
+    ],
+    stepsB:[
+      "Go upstairs for tables, outlets and the best views. Restroom is on the lower level.",
+      "Keep your ticket handy; a conductor may check it.",
+      "Sanford is stop 15, at 12:10 PM. Lake Mary (12:03 PM) is the stop right before it; get ready then."
+    ],
+    stepsC:[
+      "Step off and Tap Off at a platform validator. Keep the ticket for later.",
+      "Find the free Sanford Trolley; it waits at the station for this train.",
+      "Trolley leaves 12:15 PM. Ride about 23 minutes.",
+      "Get off at Sanford Ave & 5th St at 12:38 PM. Wop's Hops (419 S Sanford Ave) is right there."
+    ],
+    stepsD:[
+      "From Dees: catch the trolley at Magnolia Square at 3:55 PM. From Brewlando: catch it at Sanford Ave & 5th St at 4:08 PM.",
+      "Stay on board. It loops downtown and reaches the station before the 4:36 PM train.",
+      "At Sanford Station, follow the signs to the southbound platform (to Orlando and Poinciana).",
+      "Tap On with the same round trip ticket before boarding. Train leaves 4:36 PM; confirm the sign says Poinciana."
+    ],
+    stepsE:[
+      "Poinciana is the last stop, so you cannot miss it. Arrive 5:58 PM.",
+      "Tap Off at the platform validator. Forgetting can cost extra zone fares.",
+      "Walk to your car (check your parking photo). Sunset is 6:44 PM, so you drive home in daylight."
+    ]
+  };
+  var stSaved={};try{stSaved=JSON.parse(localStorage.getItem("sanford-station")||"{}")}catch(e){}
+  Object.keys(stationSteps).forEach(function(k){
+    var box=document.getElementById(k);
+    stationSteps[k].forEach(function(t,i){
+      var id=k+"_"+i, lab=el("label",{"class":"check","for":id});
+      lab.innerHTML='<input type="checkbox" id="'+id+'"'+(stSaved[id]?" checked":"")+'><span><b class="mono">'+(i+1)+'.</b> '+esc(t)+'</span>';
+      box.appendChild(lab);
+    });
+    box.addEventListener("change",function(e){stSaved[e.target.id]=e.target.checked;try{localStorage.setItem("sanford-station",JSON.stringify(stSaved))}catch(err){}});
+  });
+
   // ---------- Tables ----------
   var tn=document.querySelector("#tblNorth tbody");
   north.forEach(function(r,i){var tr=el("tr",(i===0||i===north.length-1)?{"class":"hl"}:null);tr.innerHTML="<td>"+r[0]+"</td><td class='mono'>"+r[1]+"</td>";tn.appendChild(tr)});
@@ -555,7 +648,7 @@ footer{color:var(--muted);font-size:13px}
   cl.addEventListener("change",function(e){var i=e.target.id.replace("chk","");saved[i]=e.target.checked;try{localStorage.setItem("sanford-checks",JSON.stringify(saved))}catch(err){}});
 
   // ---------- Tabs ----------
-  var views=["plan","trains","beer","weather","maps","backup"];
+  var views=["plan","station","trains","beer","weather","maps","backup"];
   function show(){
     var h=(location.hash||"#plan").slice(1); if(views.indexOf(h)<0)h="plan";
     document.querySelectorAll("section[data-view]").forEach(function(s){s.hidden=s.getAttribute("data-view")!==h});
