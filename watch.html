@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="disabled-adaptations" content="watch">
+<title>Sanford Watch</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#000;color:#F2F5F4;font-family:-apple-system,system-ui,sans-serif;font-size:15px;line-height:1.3;padding:6px 8px 24px}
+.now{background:#14262B;border-radius:14px;padding:10px;margin-bottom:10px}
+.lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#F6C760;font-weight:700}
+.big{font-size:19px;font-weight:700;margin:4px 0}
+.cd{font-size:28px;font-weight:800;color:#F6C760;font-variant-numeric:tabular-nums}
+.d{font-size:13px;color:#A9BFC2}
+ul{list-style:none;margin:0;padding:0}
+li{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #22363B}
+li .t{min-width:58px;font-weight:700;font-variant-numeric:tabular-nums;color:#4FB3C6}
+li.done{opacity:.4}
+li.cur .t{color:#F6C760}
+h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#A9BFC2;margin:14px 0 4px}
+.k{color:#F6C760;font-weight:700}
+</style>
+</head>
+<body>
+<div class="now"><div class="lbl" id="l">Next</div><div class="big" id="w">Loading</div><div class="cd" id="c"></div><div class="d" id="d"></div></div>
+<ul id="list"></ul>
+<h2>Backups</h2>
+<ul>
+<li><span class="t">4:18</span><span>Trolley at Info Center</span></li>
+<li><span class="t">5:06</span><span>Train, arrives 6:28</span></li>
+<li><span class="t">Help</span><span>SunRail 1 855 724 5411</span></li>
+</ul>
+<h2>Remember</h2>
+<ul>
+<li><span>Tap On before boarding, <span class="k">Tap Off</span> when you arrive</span></li>
+<li><span>Train home: <span class="k">southbound</span> platform</span></li>
+<li><span>No restrooms at stations</span></li>
+</ul>
+<script>
+var S=[
+["10:45","Train leaves Poinciana","Northbound to DeLand"],
+["12:10","Arrive Sanford","Tap Off, board trolley"],
+["12:15","Trolley leaves station","Off at Sanford Ave & 5th"],
+["12:38","Wop's Hops","419 S Sanford Ave"],
+["13:50","Brewlando","400 S Sanford Ave, happy hour"],
+["15:15","Dees (optional)","210 Magnolia Ave"],
+["15:55","Trolley, Magnolia Sq","If at Dees"],
+["16:08","Trolley, Sanford Ave & 5th","Stay on to station"],
+["16:36","Train P331 south","Tap On first"],
+["17:58","Arrive Poinciana","Tap Off, go to car"],
+["18:44","Sunset","Home before dark"]];
+function f(t){var p=t.split(":"),h=+p[0];return (h%12||12)+":"+p[1]}
+function m(t){var p=t.split(":");return +p[0]*60+ +p[1]}
+var L=document.getElementById("list");
+S.forEach(function(s){var li=document.createElement("li");li.innerHTML='<span class="t">'+f(s[0])+'</span><span>'+s[1]+'</span>';L.appendChild(li)});
+function u(){
+ var d=new Date(),n=d.getHours()*60+d.getMinutes(),it=L.children,x=-1;
+ for(var i=0;i<S.length;i++){it[i].className="";if(x<0&&m(S[i][0])>=n)x=i}
+ for(var j=0;j<S.length;j++)if(x<0||j<x)it[j].className="done";
+ if(x<0){w.textContent="Trip done";c.textContent="";document.getElementById("d").textContent="";return}
+ it[x].className="cur";
+ var r=m(S[x][0])-n;
+ document.getElementById("w").textContent=f(S[x][0])+"  "+S[x][1];
+ document.getElementById("c").textContent=r>=60?Math.floor(r/60)+"h "+(r%60)+"m":r+" min";
+ document.getElementById("d").textContent=S[x][2];
+}
+var w=document.getElementById("w"),c=document.getElementById("c");
+u();setInterval(u,20000);
+</script>
+</body>
+</html>
